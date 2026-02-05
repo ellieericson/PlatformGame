@@ -1,6 +1,7 @@
 #include "world.h"
 #include <SDL3/SDL_rect.h>
 #include <algorithm>
+#include "physics.h"
 
 void World::add_platform(float x, float y, float width, float height) {
     SDL_FRect rect{x, y, width, height};
@@ -30,14 +31,30 @@ void World::update(float dt) {
     velocity += 0.5f * acceleration * dt;
     position += velocity * dt;
     velocity += 0.5f * acceleration * dt;
+    velocity.x *= damping;
 
-    SDL_FRect future{position.x, position.y, player->size.x, player->size.y};
-
-    // check for collisions in the world
-    if (!has_any_collisions(future)) {
-        player->position.x = future.x;
-        player->position.y = future.y;
-        player->velocity = velocity;
+    //check for x collisions
+    SDL_FRect future{position.x, player->position.y, player->size.x, player->size.y};
+    if (has_any_collisions(future)) {
+        player->velocity.x = 0;
+        player->acceleration.x = 0;
+    }
+    else {
+        player->position.x = position.x;
+        player->velocity.x = velocity.x;
+        player->acceleration.x = acceleration.x;
+    }
+    //y collisions
+    future.x = player->position.x;
+    future.y = position.y;
+    if (has_any_collisions(future)) {
+        player->velocity.y = 0;
+        player->acceleration.y = 0;
+    }
+    else {
+        player->position.y = position.y;
+        player->velocity.y = velocity.y;
+        player->acceleration.y = acceleration.y;
     }
 }
 

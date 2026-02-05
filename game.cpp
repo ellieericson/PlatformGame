@@ -4,7 +4,11 @@ Game::Game(std::string title, int width, int height)
     : graphics{title, width, height}, dt{1.0/60.0}, lag{0.0}, performance_frequency{SDL_GetPerformanceFrequency()}, prev_counter{SDL_GetPerformanceCounter()} {
 
     //load the first "level"
-    world.add_platform(320, 500, 512, 64);
+    world.add_platform(0, 656, 1280, 64);
+    world.add_platform(200, 450, 400, 64);
+    world.add_platform(600, 200, 250, 64);
+    world.add_platform(0, 0, 64, 720);
+    world.add_platform(1216, 0, 64, 720);
     player = world.create_player();
 }
 
