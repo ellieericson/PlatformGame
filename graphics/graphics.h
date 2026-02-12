@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SDL3/SDL.h>
 #include <string>
 
@@ -11,12 +12,13 @@ class Graphics {
 public:
     Graphics(const std::string& title, int window_width, int window_height);
     void clear();
-    void draw(const SDL_FRect& rect, const Color& color);
+    void draw(const SDL_FRect& rect, const Color& color, bool filled=true);
     void update();
+
+    int width, height;
 
 private:
     std::string title;
-    int width, height;
     SDL_Window* window;
     SDL_Renderer* renderer;
 };

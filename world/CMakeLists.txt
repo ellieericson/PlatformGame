@@ -1,7 +1,10 @@
 project(world)
 
 add_library(world
-        world.cpp world.h)
+        world.cpp world.h
+        camera.cpp camera.h
+        tilemap.cpp tilemap.h
+        game_object.cpp game_object.h)
 
 target_include_directories(world PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(world PUBLIC SDL3::SDL3 game_objects)
+target_link_libraries(world PUBLIC SDL3::SDL3 graphics utilities)
