@@ -11,7 +11,7 @@ Game::Game(std::string title, int width, int height)
     world.add_platform(0, 10, 31, 1);
 
     //platforms
-    world.add_platform(3, 7, 4, 2);
+    world.add_platform(3, 7, 4, 1);
     world.add_platform(13, 4, 6, 1);
     player = world.create_player(world);
     camera.set_location(player->physics.position);
@@ -27,6 +27,7 @@ void Game::update() {
     lag += (now - prev_counter) / (float)performance_frequency;
     prev_counter = now;
     while (lag >= dt) {
+        player->update(world, dt);
         world.update(dt);
         //put the camera slightly ahead of the player
         float L = length(player->physics.velocity);

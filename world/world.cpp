@@ -2,6 +2,10 @@
 #include <SDL3/SDL_rect.h>
 #include <algorithm>
 #include "physics.h"
+#include "states.h"
+#include "fsm.h"
+#include "vec.h"
+#include "game_object.h"
 
 World::World(int width, int height)
     : tilemap{width, height} {
@@ -60,8 +64,8 @@ void World::move_to(Vec<float>& position, const Vec<float>& size, Vec<float>& ve
         }
     }
     //bottom right
-    if (collides({position.x + size.x, position.y})) {
-        float dx = (position.x + size.x) - std::floor(position.x + size.x);
+    else if (collides({position.x + size.x, position.y})) {
+        float dx = (position.x) - std::floor(position.x);
         float dy = std::ceil(position.y) - position.y;
         if (dx > dy) {
             position.y = std::ceil(position.y);
@@ -73,9 +77,9 @@ void World::move_to(Vec<float>& position, const Vec<float>& size, Vec<float>& ve
         }
     }
     //top right
-    if (collides({position.x + size.x, position.y + size.y})) {
-        float dx = (position.x + size.x) - std::floor(position.x + size.x);
-        float dy = (position.y + size.y) - std::floor(position.y + size.y);
+    else if (collides({position.x + size.x, position.y + size.y})) {
+        float dx = (position.x) - std::floor(position.x);
+        float dy = (position.y) - std::floor(position.y);
         if (dx > dy) {
             position.y = std::floor(position.y);
             velocity.y = 0;
@@ -86,9 +90,9 @@ void World::move_to(Vec<float>& position, const Vec<float>& size, Vec<float>& ve
         }
     }
     //top left
-    if (collides({position.x, position.y + size.y})) {
+    else if (collides({position.x, position.y + size.y})) {
         float dx = std::ceil(position.x) - position.x;
-        float dy = (position.y + size.y) - std::floor(position.y + size.y);
+        float dy = (position.y) - std::floor(position.y);
         if (dx > dy) {
             position.y = std::floor(position.y);
             velocity.y = 0;
@@ -102,7 +106,17 @@ void World::move_to(Vec<float>& position, const Vec<float>& size, Vec<float>& ve
 
 
 GameObject* World::create_player(World& world) {
-    player = std::make_unique<GameObject>(Vec<float>{10, 5}, Vec<float>{1.0, 1.0}, world);
+    // Create FSM
+    Transitions transitions = {
+        {{StateType::Standing, Transition::Jump}, StateType::InAir},
+        {{StateType::InAir, Transition::Stop}, StateType::Standing}
+    };
+    States states = {
+        {StateType::Standing, new Standing()},
+        {StateType::InAir, new InAir()}
+    };
+    FSM* fsm = new FSM{transitions, states, StateType::Standing};
+    player = std::make_unique<GameObject>(Vec<float>{10, 5}, Vec<float>{1.0, 1.0}, *this, fsm, Color{255, 0, 255, 255});
     return player.get();
 }
 
