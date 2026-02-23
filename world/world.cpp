@@ -109,19 +109,23 @@ GameObject* World::create_player(World& world) {
     // Create FSM
     Transitions transitions = {
         {{StateType::Standing, Transition::Jump}, StateType::InAir},
-        {{StateType::InAir, Transition::Stop}, StateType::Standing}
+        {{StateType::InAir, Transition::Stop}, StateType::Standing},
+        {{StateType::Standing, Transition::Move}, StateType::Running},
+        {{StateType::Running, Transition::Stop}, StateType::Standing},
+        {{StateType::Running, Transition::Jump}, StateType::InAir}
     };
     States states = {
         {StateType::Standing, new Standing()},
-        {StateType::InAir, new InAir()}
+        {StateType::InAir, new InAir()},
+        {StateType::Running, new Running()}
     };
     FSM* fsm = new FSM{transitions, states, StateType::Standing};
+
     player = std::make_unique<GameObject>(Vec<float>{10, 5}, Vec<float>{1.0, 1.0}, *this, fsm, Color{255, 0, 255, 255});
     return player.get();
 }
 
 void World::update(float dt) {
-    // ... the code to update veloctiy and position
     // currently only updating player
     auto position = player->physics.position;
     auto velocity = player->physics.velocity;
