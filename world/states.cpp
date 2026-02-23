@@ -33,6 +33,7 @@ Action* Standing::input(World& world, GameObject& obj, ActionType action_type) {
     return nullptr;
 }
 
+//InAir
 void InAir::on_enter(World& world, GameObject& obj) {
     elapsed = cooldown;
     obj.color = {100, 0, 255, 255};
@@ -44,6 +45,14 @@ void InAir::update(World& world, GameObject& obj, double dt) {
         obj.fsm->transition(Transition::Stop, world, obj);
     }
 }
+
+Action* InAir::input(World& world, GameObject& obj, ActionType action_type) {
+    if (action_type == ActionType::Jump) {
+        obj.fsm->transition(Transition::Jump, world, obj);
+    }
+    return nullptr;
+}
+
 
 //Running
 void Running::on_enter(World&, GameObject& obj) {
@@ -58,8 +67,28 @@ Action* Running::input(World& world, GameObject& obj, ActionType action_type) {
         obj.fsm->transition(Transition::Jump, world, obj);
         return new Jump();
     }
+    else if (action_type == ActionType::MoveRight) {
+        obj.fsm->transition(Transition::Move, world, obj);
+        return new MoveRight();
+    }
+    else if (action_type == ActionType::MoveLeft) {
+        obj.fsm->transition(Transition::Move, world, obj);
+        return new MoveLeft;
+    }
     return nullptr;
 }
 
+//Double In Air
+void DoubleInAir::on_enter(World& world, GameObject& obj) {
+    elapsed = cooldown;
+    obj.color = {0, 150, 0, 255};
+}
+
+void DoubleInAir::update(World& world, GameObject& obj, double dt) {
+    elapsed -= dt;
+    if (elapsed <= 0 && on_platform(world, obj)) {
+        obj.fsm->transition(Transition::Stop, world, obj);
+    }
+}
 
 

@@ -8,10 +8,7 @@
 #include "game_object.h"
 
 World::World(int width, int height)
-    : tilemap{width, height} {
-
-}
-
+    : tilemap{width, height} {}
 
 void World::add_platform(float x, float y, float width, float height) {
     for (int i{0}; i < height; ++i) {
@@ -112,12 +109,16 @@ GameObject* World::create_player(World& world) {
         {{StateType::InAir, Transition::Stop}, StateType::Standing},
         {{StateType::Standing, Transition::Move}, StateType::Running},
         {{StateType::Running, Transition::Stop}, StateType::Standing},
-        {{StateType::Running, Transition::Jump}, StateType::InAir}
+        {{StateType::Running, Transition::Jump}, StateType::InAir},
+        {{StateType::Running, Transition::Move}, StateType::Running},
+        {{StateType::InAir, Transition::Jump}, StateType::DoubleInAir},
+        {{StateType::DoubleInAir, Transition::Stop}, StateType::Standing}
     };
     States states = {
         {StateType::Standing, new Standing()},
         {StateType::InAir, new InAir()},
-        {StateType::Running, new Running()}
+        {StateType::Running, new Running()},
+        {StateType::DoubleInAir, new DoubleInAir()}
     };
     FSM* fsm = new FSM{transitions, states, StateType::Standing};
 

@@ -7,7 +7,7 @@ class Action;
 enum class ActionType;
 class State;
 
-enum class StateType {Standing, InAir, Running};
+enum class StateType {Standing, InAir, Running, DoubleInAir};
 enum class Transition {Jump, Stop, Move};
 
 using Transitions = std::map<std::pair<StateType, Transition>, StateType>;
