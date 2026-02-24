@@ -47,8 +47,9 @@ void InAir::update(World& world, GameObject& obj, double dt) {
 }
 
 Action* InAir::input(World& world, GameObject& obj, ActionType action_type) {
-    if (action_type == ActionType::Jump) {
+    if (elapsed <= 0 && action_type == ActionType::Jump) {
         obj.fsm->transition(Transition::Jump, world, obj);
+        return new Jump();
     }
     return nullptr;
 }
