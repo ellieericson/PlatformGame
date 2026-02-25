@@ -17,8 +17,12 @@ Game::Game(std::string title, int width, int height)
     camera.set_location(player->physics.position);
 }
 
+void Game::handle_event(SDL_Event* event) {
+    player->input->collect_discrete_event(event);
+}
+
 void Game::input() {
-    player->input(world);
+    player->input->get_input();
     camera.handle_input();
 }
 
@@ -27,6 +31,7 @@ void Game::update() {
     lag += (now - prev_counter) / (float)performance_frequency;
     prev_counter = now;
     while (lag >= dt) {
+        player->input->handle_input(world, *player);
         player->update(world, dt);
         world.update(dt);
         //put the camera slightly ahead of the player

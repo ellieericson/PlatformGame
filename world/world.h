@@ -5,6 +5,7 @@
 #include "game_object.h"
 #include "tilemap.h"
 #include "vec.h"
+#include "keyboard_input.h"
 
 class Player;
 
