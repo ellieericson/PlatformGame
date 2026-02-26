@@ -13,7 +13,7 @@ bool on_platform(World& world, GameObject& obj) {
 
 // Standing
 void Standing::on_enter(World&, GameObject& obj) {
-    obj.color = {255, 0, 255, 255};
+    obj.color = {255, 0, 0, 255};
     obj.physics.acceleration.x = 0;
 }
 
@@ -36,7 +36,7 @@ Action* Standing::input(World& world, GameObject& obj, ActionType action_type) {
 //InAir
 void InAir::on_enter(World& world, GameObject& obj) {
     elapsed = cooldown;
-    obj.color = {100, 0, 255, 255};
+    obj.color = {0, 0, 255, 255};
 }
 
 void InAir::update(World& world, GameObject& obj, double dt) {
@@ -82,7 +82,7 @@ Action* Running::input(World& world, GameObject& obj, ActionType action_type) {
 //Double In Air
 void DoubleInAir::on_enter(World& world, GameObject& obj) {
     elapsed = cooldown;
-    obj.color = {0, 150, 0, 255};
+    obj.color = {150, 0, 200, 255};
 }
 
 void DoubleInAir::update(World& world, GameObject& obj, double dt) {
