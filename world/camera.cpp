@@ -1,5 +1,6 @@
 #include "camera.h"
 
+#include "game_object.h"
 #include "graphics.h"
 #include "physics.h"
 
@@ -87,5 +88,15 @@ void Camera::render(const Tilemap& tiles) const {
     }
 }
 
+void Camera::render(const Vec<float>& position, const Sprite& sprite) const {
+    Vec<float> pixel = world_to_screen(position);
+    pixel.y += tilesize/2;
+    graphics.draw_sprite(pixel, sprite);
+}
+
+void Camera::render(const GameObject& obj) const {
+    //render(obj.physics.position, obj.color);
+    render(obj.physics.position, obj.sprite);
+}
 
 

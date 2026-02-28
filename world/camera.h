@@ -7,6 +7,9 @@
 
 class Graphics;
 class Color;
+struct Sprite;
+class GameObject;
+
 class Camera {
 public:
     Camera(Graphics& graphics, float tilesize);
@@ -18,6 +21,8 @@ public:
 
     void render(const Vec<float>& position, const Color& color, bool filled=true) const;
     void render(const Tilemap& tiles) const;
+    void render(const Vec<float>& position, const Sprite& sprite) const;
+    void render(const GameObject& obj) const;
 
 private:
     Graphics& graphics;

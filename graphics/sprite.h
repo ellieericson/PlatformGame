@@ -9,7 +9,7 @@ struct Sprite {
     Vec<float> size{0,0};
     float scale{1};
     Vec<float> shift{0,0};
-    Vec<float> cent{0,0};
+    Vec<float> center{0,0};
     double angle{0.0};
     bool flip{false};
 };
