@@ -1,8 +1,22 @@
 {
-  "idle" : {
-    "filename" : "player_idle.png",
-    "location" : [0, 0],
-    "size" : [32, 32],
-    "scale" : 2
-  }
+  "sprites" : [
+    {
+      "name" : "idle",
+      "filename" : "player_idle.png",
+      "location" : [0, 0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames" : 4,
+      "dt_per_frame" : 0.1
+    },
+    {
+      "name" : "walking",
+      "filename" : "player_idle.png",
+      "location" : [0, 0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames" : 6,
+      "dt_per_frame" : 0.1
+    }
+  ]
 }
