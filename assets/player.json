@@ -6,17 +6,36 @@
       "location" : [0, 0],
       "size" : [32, 32],
       "scale" : 2,
-      "number_of_frames" : 4,
+      "number_of_frames" : 6,
       "dt_per_frame" : 0.1
     },
     {
       "name" : "walking",
-      "filename" : "player_idle.png",
+      "filename" : "player_walking.png",
+      "location" : [0, 0],
+      "size" : [32, 36],
+      "scale" : 2,
+      "number_of_frames" : 8,
+      "dt_per_frame" : 0.1
+    },
+    {
+      "name" : "jumping",
+      "filename" : "player_jumping.png",
       "location" : [0, 0],
       "size" : [32, 32],
       "scale" : 2,
-      "number_of_frames" : 6,
-      "dt_per_frame" : 0.1
+      "number_of_frames" : 1,
+      "dt_per_frame" : -1
     }
-  ]
+  ],
+  "physics" : {
+    "position" : [10, 5],
+    "velocity" : [0, 0],
+    "acceleration" : [0, -30],
+    "gravity" : -30.0,
+    "damping" : 0.9,
+    "walk_acceleration" : 30.0,
+    "jump_velocity" : 20.0,
+    "terminal_velocity" : 15.0
+  }
 }

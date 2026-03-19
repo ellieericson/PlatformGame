@@ -8,6 +8,7 @@
 Camera::Camera(Graphics& graphics, float tilesize)
     : graphics{graphics}, tilesize{tilesize} {
     calculate_visible_tiles();
+    physics.damping = 0.9;
 }
 
 void Camera::calculate_visible_tiles() {

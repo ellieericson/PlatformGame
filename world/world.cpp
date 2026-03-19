@@ -125,7 +125,7 @@ GameObject* World::create_player(World& world) {
     //player input
     KeyboardInput* input = new KeyboardInput();
 
-    player = std::make_unique<GameObject>(Vec<float>{10, 5}, Vec<float>{1.0, 1.0}, *this, fsm, input, Color{255, 0, 255, 255});
+    player = std::make_unique<GameObject>(Vec<float>{1.0, 1.0}, *this, fsm, input, Color{255, 0, 255, 255});
     return player.get();
 }
 

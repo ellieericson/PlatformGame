@@ -13,6 +13,7 @@ bool on_platform(World& world, GameObject& obj) {
 
 // Standing
 void Standing::on_enter(World&, GameObject& obj) {
+    obj.set_sprite("idle");
     obj.color = {255, 0, 0, 255};
     obj.physics.acceleration.x = 0;
 }
@@ -36,6 +37,7 @@ Action* Standing::input(World& world, GameObject& obj, ActionType action_type) {
 //InAir
 void InAir::on_enter(World& world, GameObject& obj) {
     elapsed = cooldown;
+    obj.set_sprite("jumping");
     obj.color = {0, 0, 255, 255};
 }
 
@@ -57,6 +59,7 @@ Action* InAir::input(World& world, GameObject& obj, ActionType action_type) {
 
 //Running
 void Running::on_enter(World&, GameObject& obj) {
+    obj.set_sprite("walking");
     obj.color = {255, 255, 0, 255};
 }
 
@@ -82,6 +85,7 @@ Action* Running::input(World& world, GameObject& obj, ActionType action_type) {
 //Double In Air
 void DoubleInAir::on_enter(World& world, GameObject& obj) {
     elapsed = cooldown;
+    obj.set_sprite("jumping");
     obj.color = {150, 0, 200, 255};
 }
 
