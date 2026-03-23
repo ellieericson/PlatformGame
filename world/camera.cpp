@@ -76,7 +76,7 @@ void Camera::render(const Tilemap& tiles) const {
             const Tile& tile = tiles(x, y);
             Vec<float> position{static_cast<float>(x), static_cast<float>(y)};
 
-            if (tile == Tile::Platform) {
+            if (tile.blocking) {
                 render(position, {0, 200, 0, 255});
             }
             else {
