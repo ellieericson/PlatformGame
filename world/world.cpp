@@ -6,9 +6,13 @@
 #include "fsm.h"
 #include "vec.h"
 #include "game_object.h"
+#include "level.h"
+#include "audio.h"
 
-World::World(int width, int height)
-    : tilemap{width, height} {}
+World::World(const Level& level, Audio& audio)
+    : tilemap{level.width, level.height}, audio{&audio} {
+    load_level(level);
+}
 
 void World::add_platform(float x, float y, float width, float height) {
     for (int i{0}; i < height; ++i) {
@@ -102,7 +106,7 @@ void World::move_to(Vec<float>& position, const Vec<float>& size, Vec<float>& ve
 }
 
 
-GameObject* World::create_player(World& world) {
+GameObject* World::create_player(const Level& level) {
     // Create FSM
     Transitions transitions = {
         {{StateType::Standing, Transition::Jump}, StateType::InAir},
@@ -125,8 +129,8 @@ GameObject* World::create_player(World& world) {
     //player input
     KeyboardInput* input = new KeyboardInput();
 
-    player = std::make_unique<GameObject>(Vec<float>{1.0, 1.0}, *this, fsm, input, Color{255, 0, 255, 255});
-    return player.get();
+    player = new GameObject(Vec<float>{static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)}, Vec<float>{1.0, 1.0}, *this, fsm, input, Color{255, 0, 255, 255});
+    return player;
 }
 
 void World::update(float dt) {
@@ -158,3 +162,9 @@ void World::update(float dt) {
     player->physics.velocity = future_veloctiy;
 }
 
+void World::load_level(const Level& level) {
+    for (const auto& [pos, tile_id] : level.tile_locations) {
+        tilemap(pos.x, pos.y) = level.tile_types.at(tile_id);
+    }
+    audio->load_sounds({});
+}

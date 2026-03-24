@@ -1,0 +1,575 @@
+{
+  "tiles": [
+    {
+      "sprite": {
+        "name": "grass_left",
+        "filename": "rainforest_tileset.png",
+        "location": [0, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_middle",
+        "filename": "rainforest_tileset.png",
+        "location": [16, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_right",
+        "filename": "rainforest_tileset.png",
+        "location": [32, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_left",
+        "filename": "rainforest_tileset.png",
+        "location": [0, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_middle",
+        "filename": "rainforest_tileset.png",
+        "location": [16, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_right",
+        "filename": "rainforest_tileset.png",
+        "location": [32, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_bottom_left",
+        "filename": "rainforest_tileset.png",
+        "location": [0, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_bottom_middle",
+        "filename": "rainforest_tileset.png",
+        "location": [16, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_bottom_right",
+        "filename": "rainforest_tileset.png",
+        "location": [32, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_column_top",
+        "filename": "rainforest_tileset.png",
+        "location": [48, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_column_middle",
+        "filename": "rainforest_tileset.png",
+        "location": [48, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_column_bottom",
+        "filename": "rainforest_tileset.png",
+        "location": [48, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_shallow_left",
+        "filename": "rainforest_tileset.png",
+        "location": [0, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_shallow_middle",
+        "filename": "rainforest_tileset.png",
+        "location": [16, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_shallow_right",
+        "filename": "rainforest_tileset.png",
+        "location": [32, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "bubbly_water_top_1",
+        "filename": "rainforest_tileset.png",
+        "location": [224, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bubby_water_bottom_1",
+        "filename": "rainforest_tileset.png",
+        "location": [224, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "bubbly_water_top_2",
+        "filename": "rainforest_tileset.png",
+        "location": [240, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bubbly_water_bottom_2",
+        "filename": "rainforest_tileset.png",
+        "location": [240, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "bubbly_water_top_3",
+        "filename": "rainforest_tileset.png",
+        "location": [256, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bubbly_water_bottom_3",
+        "filename": "rainforest_tileset.png",
+        "location": [256, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "bubbly_water_top_4",
+        "filename": "rainforest_tileset.png",
+        "location": [272, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bubbly_water_bottom_4",
+        "filename": "rainforest_tileset.png",
+        "location": [272, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "bubbly_water_top_5",
+        "filename": "rainforest_tileset.png",
+        "location": [288, 0],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bubbly_water_bottom_5",
+        "filename": "rainforest_tileset.png",
+        "location": [288, 16],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "water_top_1",
+        "filename": "rainforest_tileset.png",
+        "location": [224, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "water_bottom_1",
+        "filename": "rainforest_tileset.png",
+        "location": [224, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "water_top_2",
+        "filename": "rainforest_tileset.png",
+        "location": [240, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "water_bottom_2",
+        "filename": "rainforest_tileset.png",
+        "location": [240, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "water_top_3",
+        "filename": "rainforest_tileset.png",
+        "location": [256, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "water_bottom_3",
+        "filename": "rainforest_tileset.png",
+        "location": [256, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "water_top_4",
+        "filename": "rainforest_tileset.png",
+        "location": [272, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "water_bottom_4",
+        "filename": "rainforest_tileset.png",
+        "location": [272, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "water_top_5",
+        "filename": "rainforest_tileset.png",
+        "location": [288, 32],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "water_bottom_5",
+        "filename": "rainforest_tileset.png",
+        "location": [288, 48],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "tree_bottom_left",
+        "filename": "rainforest_tileset.png",
+        "location": [176, 208],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_bottom_right",
+        "filename": "rainforest_tileset.png",
+        "location": [192, 208],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_trunk_left",
+        "filename": "rainforest_tileset.png",
+        "location": [176, 192],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_leaves_left",
+        "filename": "rainforest_tileset.png",
+        "location": [176, 176],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_leaves_right",
+        "filename": "rainforest_tileset.png",
+        "location": [192, 176],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_left",
+        "filename": "rainforest_tileset.png",
+        "location": [176, 160],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_right",
+        "filename": "rainforest_tileset.png",
+        "location": [192, 160],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+
+    {
+      "sprite": {
+        "name": "boundary",
+        "filename": "rainforest_tileset.png",
+        "location": [16, 112],
+        "size": [16, 16],
+        "scale": 4,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    }
+  ]
+}
