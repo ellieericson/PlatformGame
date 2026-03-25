@@ -33,9 +33,9 @@
     "velocity" : [0, 0],
     "acceleration" : [0, -30],
     "gravity" : -30.0,
-    "damping" : 0.9,
-    "walk_acceleration" : 30.0,
-    "jump_velocity" : 20.0,
+    "damping" : 0.85,
+    "walk_acceleration" : 35.0,
+    "jump_velocity" : 25.0,
     "terminal_velocity" : 15.0
   }
 }
