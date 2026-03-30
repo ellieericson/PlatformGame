@@ -570,6 +570,20 @@
       },
       "blocking": true,
       "event_name": ""
+    },
+
+    {
+      "sprite" : {
+        "name" : "doorway",
+        "filename" : "rainforest_tileset.png",
+        "location" : [0, 224],
+        "size" : [16, 16],
+        "scale" : 4,
+        "number_of_frames" : 1,
+        "dt_per_frame" : -1
+      },
+      "blocking" : true,
+      "event_name" : "next_level"
     }
   ]
 }

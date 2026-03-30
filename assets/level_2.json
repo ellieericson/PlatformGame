@@ -403,6 +403,27 @@
         {
             "pos": [
                 7,
+                4
+            ],
+            "tile": "nature-tiles.json:dirt_column_bottom"
+        },
+        {
+            "pos": [
+                7,
+                5
+            ],
+            "tile": "nature-tiles.json:dirt_column_middle"
+        },
+        {
+            "pos": [
+                7,
+                6
+            ],
+            "tile": "nature-tiles.json:grass_column_top"
+        },
+        {
+            "pos": [
+                7,
                 14
             ],
             "tile": "nature-tiles.json:boundary"

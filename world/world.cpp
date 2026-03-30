@@ -8,9 +8,10 @@
 #include "game_object.h"
 #include "level.h"
 #include "audio.h"
+#include "events.h"
 
-World::World(const Level& level, Audio& audio)
-    : tilemap{level.width, level.height}, audio{&audio} {
+World::World(const Level& level, Audio& audio, GameObject* player, std::map<std::string, Event*> events)
+    : tilemap{level.width, level.height}, player{player}, audio{&audio}, events{events} {
     load_level(level);
 }
 
@@ -105,34 +106,6 @@ void World::move_to(Vec<float>& position, const Vec<float>& size, Vec<float>& ve
     }
 }
 
-
-GameObject* World::create_player(const Level& level) {
-    // Create FSM
-    Transitions transitions = {
-        {{StateType::Standing, Transition::Jump}, StateType::InAir},
-        {{StateType::InAir, Transition::Stop}, StateType::Standing},
-        {{StateType::Standing, Transition::Move}, StateType::Running},
-        {{StateType::Running, Transition::Stop}, StateType::Standing},
-        {{StateType::Running, Transition::Jump}, StateType::InAir},
-        {{StateType::Running, Transition::Move}, StateType::Running},
-        {{StateType::InAir, Transition::Jump}, StateType::DoubleInAir},
-        {{StateType::DoubleInAir, Transition::Stop}, StateType::Standing}
-    };
-    States states = {
-        {StateType::Standing, new Standing()},
-        {StateType::InAir, new InAir()},
-        {StateType::Running, new Running()},
-        {StateType::DoubleInAir, new DoubleInAir()}
-    };
-    FSM* fsm = new FSM{transitions, states, StateType::Standing};
-
-    //player input
-    KeyboardInput* input = new KeyboardInput();
-
-    player = new GameObject(Vec<float>{static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)}, Vec<float>{1.0, 1.0}, *this, fsm, input, Color{255, 0, 255, 255});
-    return player;
-}
-
 void World::update(float dt) {
     // currently only updating player
     auto position = player->physics.position;
@@ -160,6 +133,8 @@ void World::update(float dt) {
      //update the player position and velocity
     player->physics.position = future_position;
     player->physics.velocity = future_veloctiy;
+
+    touch_tiles(*player);
 }
 
 void World::load_level(const Level& level) {
@@ -167,4 +142,20 @@ void World::load_level(const Level& level) {
         tilemap(pos.x, pos.y) = level.tile_types.at(tile_id);
     }
     audio->load_sounds({});
+}
+
+void World::touch_tiles(GameObject& obj) {
+    int x = std::floor(obj.physics.position.x);
+    int y = std::floor(obj.physics.position.y);
+    const std::vector<Vec<int>> displacements{{0,0}, {static_cast<int>(obj.size.x), 0}, {0, static_cast<int>(obj.size.y)}, {static_cast<int>(obj.size.x), static_cast<int>(obj.size.y)}};
+    for (const auto& displacement : displacements) {
+        Tile& tile = tilemap(x+displacement.x, y + displacement.y);
+        if (!tile.event_name.empty()) {
+            auto itr = events.find(tile.event_name);
+            if (itr == events.end()) {
+                throw std::runtime_error("Cannot find event: " + tile.event_name);
+            }
+            itr->second->perform(*this, obj);
+        }
+    }
 }

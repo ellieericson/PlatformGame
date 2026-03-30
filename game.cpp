@@ -1,20 +1,25 @@
 #include "game.h"
 #include "asset_manager.h"
 #include "fsm.h"
+#include "states.h"
+#include "level.h"
 
 Game::Game(std::string title, int width, int height)
     : graphics{title, width, height}, camera{graphics, 64}, dt{1.0/60.0}, lag{0.0}, performance_frequency{SDL_GetPerformanceFrequency()}, prev_counter{SDL_GetPerformanceCounter()} {
 
+    //load events
+    get_events();
     //load the first level
     Level level{"level_1"};
     AssetManager::get_level_details(graphics, level);
 
-    //create the world for the first level
-    world = new World(level, audio);
-
     //give the player its assets and put it in the correct state
-    player = std::unique_ptr<GameObject>(world->create_player(level));
+    create_player();
     AssetManager::get_game_object_details("player", graphics, *player);
+
+    //create the world for the first level
+    world = new World(level, audio, player.get(), events);
+
 
     //use the spawn location's position
     player->physics.position = {static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)};
@@ -23,6 +28,14 @@ Game::Game(std::string title, int width, int height)
     camera.set_location(player->physics.position);
     audio.play_sounds("background", true);
 }
+
+Game::~Game() {
+    delete world;
+    for (auto [_, event] : events) {
+        delete event;
+    }
+}
+
 
 void Game::handle_event(SDL_Event* event) {
     player->input->collect_discrete_event(event);
@@ -46,6 +59,9 @@ void Game::update() {
         Vec displacement = 8.0f * player->physics.velocity / (1.0f + L);
         camera.update(player->physics.position + displacement, dt);
         lag -= dt;
+        if (world->end_level) {
+            load_level();
+        }
     }
 }
 
@@ -63,4 +79,46 @@ void Game::render() {
     graphics.update();
 }
 
+void Game::get_events() {
+    events["next_level"] = new NextLevel();
+}
 
+void Game::load_level() {
+    std::string level_name = "level_" + std::to_string(++current_level);
+    Level level{level_name};
+    AssetManager::get_level_details(graphics, level);
+
+    //create the world
+    delete world;
+    world = new World(level, audio, player.get(), events);
+
+    player->physics.position = {static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)};
+    camera.set_location(player->physics.position);
+    audio.play_sounds("background", true);
+}
+
+void Game::create_player() {
+    // Create FSM
+    Transitions transitions = {
+        {{StateType::Standing, Transition::Jump}, StateType::InAir},
+        {{StateType::InAir, Transition::Stop}, StateType::Standing},
+        {{StateType::Standing, Transition::Move}, StateType::Running},
+        {{StateType::Running, Transition::Stop}, StateType::Standing},
+        {{StateType::Running, Transition::Jump}, StateType::InAir},
+        {{StateType::Running, Transition::Move}, StateType::Running},
+        {{StateType::InAir, Transition::Jump}, StateType::DoubleInAir},
+        {{StateType::DoubleInAir, Transition::Stop}, StateType::Standing}
+    };
+    States states = {
+        {StateType::Standing, new Standing()},
+        {StateType::InAir, new InAir()},
+        {StateType::Running, new Running()},
+        {StateType::DoubleInAir, new DoubleInAir()}
+    };
+    FSM* fsm = new FSM{transitions, states, StateType::Standing};
+
+    //player input
+    KeyboardInput* input = new KeyboardInput();
+
+    player = std::make_unique<GameObject>(Vec<float>{1.0, 1.0}, fsm, input, Color{255, 0, 255, 255});
+}

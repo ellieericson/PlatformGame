@@ -3,11 +3,10 @@
 #include "physics.h"
 #include "fsm.h"
 #include "action.h"
+#include "input.h"
 
-GameObject::GameObject(const Vec<float>& location, const Vec<float>& size, World& world, FSM* fsm, Input* input, Color color)
+GameObject::GameObject(const Vec<float>& size, FSM* fsm, Input* input, Color color)
     : size{size}, fsm{fsm}, input{input}, color{color} {
-    physics.position.x = location.x;
-    physics.position.y = location.y;
     physics.acceleration.y = physics.gravity;
 }
 
