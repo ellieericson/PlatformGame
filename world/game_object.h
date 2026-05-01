@@ -10,12 +10,13 @@
 class World;
 class FSM;
 class Input;
+class AABB;
 
 using Sprites = std::map<std::string, AnimatedSprite>;
 
 class GameObject {
 public:
-    GameObject(const Vec<float>& size, FSM* fsm, Input* input, Color color);
+    GameObject(std::string name, FSM* fsm, Input* input, Color color);
     ~GameObject();
 
     void update(World& world, double dt);
@@ -23,7 +24,12 @@ public:
     std::pair<Vec<float>, Color> get_sprite() const;
     void set_sprite(const std::string& next_sprite);
 
+    AABB get_bounding_box();
+
+    void take_damage(int attack_damage);
+
     // GameObject data
+    std::string obj_name;
     Vec<float> size;
     Physics physics;
     FSM* fsm;
@@ -32,4 +38,15 @@ public:
     Sprites sprites;
     Sprite sprite;
     std::string sprite_name;
+
+    //combat stuff
+    int health;
+    int max_health;
+    int damage;
+    bool is_alive{true};
+
+    // coin collection
+    int coin_count{0};
+
+    double invincible_time_remaining{0.0};
 };

@@ -2,6 +2,14 @@
 #include <vector>
 
 #include "sprite.h"
+#include "game_object.h"
+
+struct Background {
+    std::string filename;
+    float scale;
+    float distance;
+    Sprite sprite;
+};
 
 class Tile {
 public:
@@ -9,6 +17,7 @@ public:
     bool blocking{false};
     std::string id;
     std::string event_name;
+    GameObject* obj{nullptr};
 };
 
 class Tilemap {

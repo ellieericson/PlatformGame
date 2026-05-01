@@ -9,7 +9,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
         return SDL_APP_FAILURE;
     }
 
-    auto game = new Game("Cool Game", 1280, 720); //1920, 1080
+    auto game = new Game("Mushroom Run", 1280, 720);
     *appstate = game;
     return SDL_APP_CONTINUE;
 }

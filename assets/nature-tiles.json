@@ -206,7 +206,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -220,7 +220,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -233,7 +233,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -247,7 +247,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -260,7 +260,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -274,7 +274,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -287,7 +287,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -301,7 +301,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -314,7 +314,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -328,7 +328,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -341,8 +341,8 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
-      "event_name": ""
+      "blocking": false,
+      "event_name": "drown"
     },
     {
       "sprite": {
@@ -355,7 +355,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -368,8 +368,8 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
-      "event_name": ""
+      "blocking": false,
+      "event_name": "drown"
     },
     {
       "sprite": {
@@ -382,7 +382,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -395,8 +395,8 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
-      "event_name": ""
+      "blocking": false,
+      "event_name": "drown"
     },
     {
       "sprite": {
@@ -409,7 +409,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -422,8 +422,8 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
-      "event_name": ""
+      "blocking": false,
+      "event_name": "drown"
     },
     {
       "sprite": {
@@ -436,7 +436,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -449,8 +449,8 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
-      "event_name": ""
+      "blocking": false,
+      "event_name": "drown"
     },
     {
       "sprite": {
@@ -463,7 +463,7 @@
         "dt_per_frame": -1
       },
       "blocking": true,
-      "event_name": ""
+      "event_name": "drown"
     },
 
     {
@@ -584,6 +584,19 @@
       },
       "blocking" : true,
       "event_name" : "next_level"
+    },
+    {
+      "sprite" : {
+        "name" : "coin_blank",
+        "filename" : "coin.png",
+        "location" : [144, 0],
+        "size" : [16, 16],
+        "scale" : 4,
+        "number_of_frames" : 1,
+        "dt_per_frame" : -1
+      },
+      "blocking" : false,
+      "event_name" : "gather"
     }
   ]
 }

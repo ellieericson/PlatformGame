@@ -4,7 +4,6 @@
 #include "vec.h"
 #include "physics.h"
 
-
 class Graphics;
 class Color;
 struct Sprite;
@@ -23,11 +22,14 @@ public:
     void render(const Tilemap& tiles) const;
     void render(const Vec<float>& position, const Sprite& sprite) const;
     void render(const GameObject& obj) const;
+    void render(const std::vector<Background>& backgrounds);
+
+    void render_game_over();
+    void render_winning_tally(const GameObject& player);
 
 private:
     Graphics& graphics;
     float tilesize;
-    //Vec<float> location;
     Toggle grid_toggle;
 
     void calculate_visible_tiles();

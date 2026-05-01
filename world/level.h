@@ -2,6 +2,7 @@
 
 #include "vec.h"
 #include "tilemap.h"
+#include "audio.h"
 
 #include <string>
 #include <map>
@@ -21,4 +22,6 @@ public:
     std::map<std::string, Tile> tile_types;
 
     Vec<int> player_spawn_location{-1, -1};
+    std::vector<Sound> sounds;
+    std::vector<Background> backgrounds;
 };

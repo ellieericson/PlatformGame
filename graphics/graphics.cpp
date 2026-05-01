@@ -79,3 +79,24 @@ void Graphics::draw_sprite(const Vec<float> &pixel, const Sprite &sprite) {
     SDL_FlipMode flip = sprite.flip ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
     SDL_RenderTextureRotated(renderer, texture, &image_pixels, &screen_pixels, sprite.angle, &center, flip);
 }
+
+Sprite Graphics::load_image(const std::string &filename) {
+    int id = get_texture_id(filename);
+    auto texture = textures.at(id);
+    float width, height;
+    SDL_GetTextureSize(texture, &width, &height);
+    Sprite sprite;
+    sprite.texture_id = id;
+    sprite.size = {width, height};
+    return sprite;
+}
+
+void Graphics::draw_text(const std::string& text) {
+    std::string message = "Score: " + text;
+
+    SDL_SetRenderDrawColor(renderer, 200, 200, 50, 255);
+    SDL_SetRenderScale(renderer, 4.0f, 4.0f);
+    SDL_RenderDebugText(renderer, 130, 120, message.c_str());
+
+    SDL_SetRenderScale(renderer, 1.0f, 1.0f);
+}

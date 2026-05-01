@@ -13,3 +13,13 @@ class NextLevel : public Event {
 public:
     void perform(World& world, GameObject& obj) override;
 };
+
+class Drown : public Event {
+public:
+    void perform(World& world, GameObject& obj) override;
+};
+
+class Gather : public Event {
+public:
+    void perform(World& world, GameObject& obj) override;
+};

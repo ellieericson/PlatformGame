@@ -1,0 +1,27 @@
+{
+  "sprites" : [
+    {
+      "name" : "idle",
+      "filename" : "coin.png",
+      "location" : [0, 0],
+      "size" : [16, 16],
+      "scale" : 4,
+      "number_of_frames" : 9,
+      "dt_per_frame" : 0.1
+    }
+  ],
+  "physics" : {
+    "velocity": [0, 0],
+    "acceleration" : [0, 0],
+    "gravity": 0.0,
+    "damping": 1.0,
+    "walk_acceleration": 60.0,
+    "jump_velocity": 20.0,
+    "terminal_velocity": 30.0
+  },
+  "size" : [1, 1],
+  "health" : 1,
+  "max_health" : 1,
+  "damage" : 0
+}
+

@@ -1,9 +1,7 @@
 #include "camera.h"
-
 #include "game_object.h"
 #include "graphics.h"
 #include "physics.h"
-
 
 Camera::Camera(Graphics& graphics, float tilesize)
     : graphics{graphics}, tilesize{tilesize} {
@@ -100,4 +98,19 @@ void Camera::render(const GameObject& obj) const {
     render(obj.physics.position, obj.sprite);
 }
 
+void Camera::render(const std::vector<Background>& backgrounds) {
+    for (auto background : backgrounds) {
+        float shift = physics.position.x / background.distance;
+        graphics.draw_sprite({-shift, 0}, background.sprite);
+    }
+}
+
+void Camera::render_game_over() {
+    SDL_FRect full_screen{0.0f, 0.0f, static_cast<float>(graphics.width), static_cast<float>(graphics.height)};
+    graphics.draw(full_screen, Color{0, 0, 0, 180}, true);
+}
+
+void Camera::render_winning_tally(const GameObject& player) {
+    graphics.draw_text(std::to_string(player.coin_count));
+}
 
