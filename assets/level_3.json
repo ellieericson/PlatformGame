@@ -173,6 +173,34 @@
         {
             "pos": [
                 1,
+                4
+            ],
+            "tile": "nature-tiles.json:tree_bottom_left"
+        },
+        {
+            "pos": [
+                1,
+                5
+            ],
+            "tile": "nature-tiles.json:tree_trunk_left"
+        },
+        {
+            "pos": [
+                1,
+                6
+            ],
+            "tile": "nature-tiles.json:tree_leaves_left"
+        },
+        {
+            "pos": [
+                1,
+                7
+            ],
+            "tile": "nature-tiles.json:tree_top_left"
+        },
+        {
+            "pos": [
+                1,
                 14
             ],
             "tile": "nature-tiles.json:boundary"
@@ -208,16 +236,23 @@
         {
             "pos": [
                 2,
-                8
+                4
             ],
-            "tile": "nature-tiles.json:dirt_bottom_left"
+            "tile": "nature-tiles.json:tree_bottom_right"
         },
         {
             "pos": [
                 2,
-                9
+                6
             ],
-            "tile": "nature-tiles.json:grass_left"
+            "tile": "nature-tiles.json:tree_leaves_right"
+        },
+        {
+            "pos": [
+                2,
+                7
+            ],
+            "tile": "nature-tiles.json:tree_top_right"
         },
         {
             "pos": [
@@ -257,20 +292,6 @@
         {
             "pos": [
                 3,
-                8
-            ],
-            "tile": "nature-tiles.json:dirt_bottom_middle"
-        },
-        {
-            "pos": [
-                3,
-                9
-            ],
-            "tile": "nature-tiles.json:grass_middle"
-        },
-        {
-            "pos": [
-                3,
                 14
             ],
             "tile": "nature-tiles.json:boundary"
@@ -300,20 +321,6 @@
             "pos": [
                 4,
                 3
-            ],
-            "tile": "nature-tiles.json:grass_middle"
-        },
-        {
-            "pos": [
-                4,
-                8
-            ],
-            "tile": "nature-tiles.json:dirt_bottom_middle"
-        },
-        {
-            "pos": [
-                4,
-                9
             ],
             "tile": "nature-tiles.json:grass_middle"
         },
@@ -351,20 +358,6 @@
                 3
             ],
             "tile": "nature-tiles.json:grass_middle"
-        },
-        {
-            "pos": [
-                5,
-                8
-            ],
-            "tile": "nature-tiles.json:dirt_bottom_right"
-        },
-        {
-            "pos": [
-                5,
-                9
-            ],
-            "tile": "nature-tiles.json:grass_right"
         },
         {
             "pos": [
@@ -817,20 +810,6 @@
         {
             "pos": [
                 15,
-                8
-            ],
-            "tile": "nature-tiles.json:dirt_bottom_left"
-        },
-        {
-            "pos": [
-                15,
-                9
-            ],
-            "tile": "nature-tiles.json:grass_left"
-        },
-        {
-            "pos": [
-                15,
                 14
             ],
             "tile": "nature-tiles.json:boundary"
@@ -860,20 +839,6 @@
             "pos": [
                 16,
                 3
-            ],
-            "tile": "nature-tiles.json:grass_middle"
-        },
-        {
-            "pos": [
-                16,
-                8
-            ],
-            "tile": "nature-tiles.json:dirt_bottom_middle"
-        },
-        {
-            "pos": [
-                16,
-                9
             ],
             "tile": "nature-tiles.json:grass_middle"
         },
@@ -915,20 +880,6 @@
         {
             "pos": [
                 17,
-                8
-            ],
-            "tile": "nature-tiles.json:dirt_bottom_middle"
-        },
-        {
-            "pos": [
-                17,
-                9
-            ],
-            "tile": "nature-tiles.json:grass_middle"
-        },
-        {
-            "pos": [
-                17,
                 14
             ],
             "tile": "nature-tiles.json:boundary"
@@ -964,16 +915,30 @@
         {
             "pos": [
                 18,
-                8
+                4
             ],
-            "tile": "nature-tiles.json:dirt_bottom_right"
+            "tile": "nature-tiles.json:tree_bottom_left"
         },
         {
             "pos": [
                 18,
-                9
+                5
             ],
-            "tile": "nature-tiles.json:grass_right"
+            "tile": "nature-tiles.json:tree_trunk_left"
+        },
+        {
+            "pos": [
+                18,
+                6
+            ],
+            "tile": "nature-tiles.json:tree_leaves_left"
+        },
+        {
+            "pos": [
+                18,
+                7
+            ],
+            "tile": "nature-tiles.json:tree_top_left"
         },
         {
             "pos": [
@@ -1009,6 +974,27 @@
                 3
             ],
             "tile": "nature-tiles.json:grass_right"
+        },
+        {
+            "pos": [
+                19,
+                4
+            ],
+            "tile": "nature-tiles.json:tree_bottom_right"
+        },
+        {
+            "pos": [
+                19,
+                6
+            ],
+            "tile": "nature-tiles.json:tree_leaves_right"
+        },
+        {
+            "pos": [
+                19,
+                7
+            ],
+            "tile": "nature-tiles.json:tree_top_right"
         },
         {
             "pos": [

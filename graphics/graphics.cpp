@@ -96,7 +96,7 @@ void Graphics::draw_text(const std::string& text) {
 
     SDL_SetRenderDrawColor(renderer, 200, 200, 50, 255);
     SDL_SetRenderScale(renderer, 4.0f, 4.0f);
-    SDL_RenderDebugText(renderer, 130, 120, message.c_str());
+    SDL_RenderDebugText(renderer, 120, 120, message.c_str());
 
     SDL_SetRenderScale(renderer, 1.0f, 1.0f);
 }
